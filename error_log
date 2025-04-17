@@ -1,0 +1,80 @@
+[11-Mar-2024 19:15:42 UTC] PHP Warning:  file_get_contents(): SSL operation failed with code 1. OpenSSL Error messages:
+error:1416F086:SSL routines:tls_process_server_certificate:certificate verify failed in /home/l2abag1yer7r/public_html/counter.php on line 5
+[11-Mar-2024 19:15:42 UTC] PHP Warning:  file_get_contents(): Failed to enable crypto in /home/l2abag1yer7r/public_html/counter.php on line 5
+[11-Mar-2024 19:15:42 UTC] PHP Warning:  file_get_contents(https://yashrajbusinessgroup.com/download-counter.txt): failed to open stream: operation failed in /home/l2abag1yer7r/public_html/counter.php on line 5
+[11-Mar-2024 19:15:42 UTC] PHP Warning:  file_put_contents(https://yashrajbusinessgroup.com/download-counter.txt): failed to open stream: HTTP wrapper does not support writeable connections in /home/l2abag1yer7r/public_html/counter.php on line 11
+[11-Mar-2024 19:18:02 UTC] PHP Warning:  file_get_contents(): SSL operation failed with code 1. OpenSSL Error messages:
+error:1416F086:SSL routines:tls_process_server_certificate:certificate verify failed in /home/l2abag1yer7r/public_html/counter.php on line 5
+[11-Mar-2024 19:18:02 UTC] PHP Warning:  file_get_contents(): Failed to enable crypto in /home/l2abag1yer7r/public_html/counter.php on line 5
+[11-Mar-2024 19:18:02 UTC] PHP Warning:  file_get_contents(https://yashrajbusinessgroup.com/download-counter.txt): failed to open stream: operation failed in /home/l2abag1yer7r/public_html/counter.php on line 5
+[11-Mar-2024 19:18:02 UTC] PHP Warning:  file_put_contents(https://yashrajbusinessgroup.com/download-counter.txt): failed to open stream: HTTP wrapper does not support writeable connections in /home/l2abag1yer7r/public_html/counter.php on line 11
+[11-Mar-2024 19:18:24 UTC] PHP Warning:  file_get_contents(): SSL operation failed with code 1. OpenSSL Error messages:
+error:1416F086:SSL routines:tls_process_server_certificate:certificate verify failed in /home/l2abag1yer7r/public_html/counter.php on line 5
+[11-Mar-2024 19:18:24 UTC] PHP Warning:  file_get_contents(): Failed to enable crypto in /home/l2abag1yer7r/public_html/counter.php on line 5
+[11-Mar-2024 19:18:24 UTC] PHP Warning:  file_get_contents(https://yashrajbusinessgroup.com/download-counter.txt): failed to open stream: operation failed in /home/l2abag1yer7r/public_html/counter.php on line 5
+[11-Mar-2024 19:18:24 UTC] PHP Warning:  file_put_contents(https://yashrajbusinessgroup.com/download-counter.txt): failed to open stream: HTTP wrapper does not support writeable connections in /home/l2abag1yer7r/public_html/counter.php on line 11
+[12-Mar-2024 00:42:11 UTC] PHP Warning:  file_get_contents(): SSL operation failed with code 1. OpenSSL Error messages:
+error:1416F086:SSL routines:tls_process_server_certificate:certificate verify failed in /home/l2abag1yer7r/public_html/counter.php on line 5
+[12-Mar-2024 00:42:11 UTC] PHP Warning:  file_get_contents(): Failed to enable crypto in /home/l2abag1yer7r/public_html/counter.php on line 5
+[12-Mar-2024 00:42:11 UTC] PHP Warning:  file_get_contents(https://yashrajbusinessgroup.com/download-counter.txt): failed to open stream: operation failed in /home/l2abag1yer7r/public_html/counter.php on line 5
+[12-Mar-2024 00:42:11 UTC] PHP Warning:  file_put_contents(https://yashrajbusinessgroup.com/download-counter.txt): failed to open stream: HTTP wrapper does not support writeable connections in /home/l2abag1yer7r/public_html/counter.php on line 11
+[12-Mar-2024 11:12:28 UTC] PHP Warning:  file_get_contents(): SSL operation failed with code 1. OpenSSL Error messages:
+error:1416F086:SSL routines:tls_process_server_certificate:certificate verify failed in /home/l2abag1yer7r/public_html/counter.php on line 5
+[12-Mar-2024 11:12:28 UTC] PHP Warning:  file_get_contents(): Failed to enable crypto in /home/l2abag1yer7r/public_html/counter.php on line 5
+[12-Mar-2024 11:12:28 UTC] PHP Warning:  file_get_contents(https://yashrajbusinessgroup.com/download-counter.txt): failed to open stream: operation failed in /home/l2abag1yer7r/public_html/counter.php on line 5
+[12-Mar-2024 11:12:28 UTC] PHP Warning:  file_put_contents(https://yashrajbusinessgroup.com/download-counter.txt): failed to open stream: HTTP wrapper does not support writeable connections in /home/l2abag1yer7r/public_html/counter.php on line 11
+[16-Mar-2024 01:38:31 UTC] PHP Warning:  file_get_contents(): SSL operation failed with code 1. OpenSSL Error messages:
+error:1416F086:SSL routines:tls_process_server_certificate:certificate verify failed in /home/l2abag1yer7r/public_html/counter.php on line 5
+[16-Mar-2024 01:38:31 UTC] PHP Warning:  file_get_contents(): Failed to enable crypto in /home/l2abag1yer7r/public_html/counter.php on line 5
+[16-Mar-2024 01:38:31 UTC] PHP Warning:  file_get_contents(https://yashrajbusinessgroup.com/download-counter.txt): failed to open stream: operation failed in /home/l2abag1yer7r/public_html/counter.php on line 5
+[16-Mar-2024 01:38:31 UTC] PHP Warning:  file_put_contents(https://yashrajbusinessgroup.com/download-counter.txt): failed to open stream: HTTP wrapper does not support writeable connections in /home/l2abag1yer7r/public_html/counter.php on line 11
+[06-Apr-2024 08:05:14 UTC] PHP Warning:  file_get_contents(): SSL operation failed with code 1. OpenSSL Error messages:
+error:1416F086:SSL routines:tls_process_server_certificate:certificate verify failed in /home/l2abag1yer7r/public_html/counter.php on line 5
+[06-Apr-2024 08:05:14 UTC] PHP Warning:  file_get_contents(): Failed to enable crypto in /home/l2abag1yer7r/public_html/counter.php on line 5
+[06-Apr-2024 08:05:14 UTC] PHP Warning:  file_get_contents(https://yashrajbusinessgroup.com/download-counter.txt): failed to open stream: operation failed in /home/l2abag1yer7r/public_html/counter.php on line 5
+[06-Apr-2024 08:05:14 UTC] PHP Warning:  file_put_contents(https://yashrajbusinessgroup.com/download-counter.txt): failed to open stream: HTTP wrapper does not support writeable connections in /home/l2abag1yer7r/public_html/counter.php on line 11
+[27-Jul-2024 12:33:01 UTC] PHP Warning:  file_get_contents(): SSL operation failed with code 1. OpenSSL Error messages:
+error:1416F086:SSL routines:tls_process_server_certificate:certificate verify failed in /home/l2abag1yer7r/public_html/counter.php on line 5
+[27-Jul-2024 12:33:01 UTC] PHP Warning:  file_get_contents(): Failed to enable crypto in /home/l2abag1yer7r/public_html/counter.php on line 5
+[27-Jul-2024 12:33:01 UTC] PHP Warning:  file_get_contents(https://yashrajbusinessgroup.com/download-counter.txt): failed to open stream: operation failed in /home/l2abag1yer7r/public_html/counter.php on line 5
+[27-Jul-2024 12:33:01 UTC] PHP Warning:  file_put_contents(https://yashrajbusinessgroup.com/download-counter.txt): failed to open stream: HTTP wrapper does not support writeable connections in /home/l2abag1yer7r/public_html/counter.php on line 11
+[18-Oct-2024 03:13:53 UTC] PHP Warning:  file_get_contents(): SSL operation failed with code 1. OpenSSL Error messages:
+error:1416F086:SSL routines:tls_process_server_certificate:certificate verify failed in /home/l2abag1yer7r/public_html/counter.php on line 5
+[18-Oct-2024 03:13:53 UTC] PHP Warning:  file_get_contents(): Failed to enable crypto in /home/l2abag1yer7r/public_html/counter.php on line 5
+[18-Oct-2024 03:13:53 UTC] PHP Warning:  file_get_contents(https://yashrajbusinessgroup.com/download-counter.txt): failed to open stream: operation failed in /home/l2abag1yer7r/public_html/counter.php on line 5
+[18-Oct-2024 03:13:53 UTC] PHP Warning:  file_put_contents(https://yashrajbusinessgroup.com/download-counter.txt): failed to open stream: HTTP wrapper does not support writeable connections in /home/l2abag1yer7r/public_html/counter.php on line 11
+[15-Nov-2024 23:27:44 UTC] PHP Warning:  file_get_contents(): SSL operation failed with code 1. OpenSSL Error messages:
+error:1416F086:SSL routines:tls_process_server_certificate:certificate verify failed in /home/l2abag1yer7r/public_html/counter.php on line 5
+[15-Nov-2024 23:27:44 UTC] PHP Warning:  file_get_contents(): Failed to enable crypto in /home/l2abag1yer7r/public_html/counter.php on line 5
+[15-Nov-2024 23:27:44 UTC] PHP Warning:  file_get_contents(https://yashrajbusinessgroup.com/download-counter.txt): failed to open stream: operation failed in /home/l2abag1yer7r/public_html/counter.php on line 5
+[15-Nov-2024 23:27:44 UTC] PHP Warning:  file_put_contents(https://yashrajbusinessgroup.com/download-counter.txt): failed to open stream: HTTP wrapper does not support writeable connections in /home/l2abag1yer7r/public_html/counter.php on line 11
+[26-Nov-2024 09:43:56 UTC] PHP Warning:  file_get_contents(): SSL operation failed with code 1. OpenSSL Error messages:
+error:1416F086:SSL routines:tls_process_server_certificate:certificate verify failed in /home/l2abag1yer7r/public_html/counter.php on line 5
+[26-Nov-2024 09:43:56 UTC] PHP Warning:  file_get_contents(): Failed to enable crypto in /home/l2abag1yer7r/public_html/counter.php on line 5
+[26-Nov-2024 09:43:56 UTC] PHP Warning:  file_get_contents(https://yashrajbusinessgroup.com/download-counter.txt): failed to open stream: operation failed in /home/l2abag1yer7r/public_html/counter.php on line 5
+[26-Nov-2024 09:43:56 UTC] PHP Warning:  file_put_contents(https://yashrajbusinessgroup.com/download-counter.txt): failed to open stream: HTTP wrapper does not support writeable connections in /home/l2abag1yer7r/public_html/counter.php on line 11
+[28-Nov-2024 05:32:11 UTC] PHP Warning:  file_get_contents(): SSL operation failed with code 1. OpenSSL Error messages:
+error:1416F086:SSL routines:tls_process_server_certificate:certificate verify failed in /home/l2abag1yer7r/public_html/counter.php on line 5
+[28-Nov-2024 05:32:11 UTC] PHP Warning:  file_get_contents(): Failed to enable crypto in /home/l2abag1yer7r/public_html/counter.php on line 5
+[28-Nov-2024 05:32:11 UTC] PHP Warning:  file_get_contents(https://yashrajbusinessgroup.com/download-counter.txt): failed to open stream: operation failed in /home/l2abag1yer7r/public_html/counter.php on line 5
+[28-Nov-2024 05:32:11 UTC] PHP Warning:  file_put_contents(https://yashrajbusinessgroup.com/download-counter.txt): failed to open stream: HTTP wrapper does not support writeable connections in /home/l2abag1yer7r/public_html/counter.php on line 11
+[29-Nov-2024 13:28:19 UTC] PHP Warning:  file_get_contents(): SSL operation failed with code 1. OpenSSL Error messages:
+error:1416F086:SSL routines:tls_process_server_certificate:certificate verify failed in /home/l2abag1yer7r/public_html/counter.php on line 5
+[29-Nov-2024 13:28:19 UTC] PHP Warning:  file_get_contents(): Failed to enable crypto in /home/l2abag1yer7r/public_html/counter.php on line 5
+[29-Nov-2024 13:28:19 UTC] PHP Warning:  file_get_contents(https://yashrajbusinessgroup.com/download-counter.txt): failed to open stream: operation failed in /home/l2abag1yer7r/public_html/counter.php on line 5
+[29-Nov-2024 13:28:19 UTC] PHP Warning:  file_put_contents(https://yashrajbusinessgroup.com/download-counter.txt): failed to open stream: HTTP wrapper does not support writeable connections in /home/l2abag1yer7r/public_html/counter.php on line 11
+[23-Dec-2024 06:06:40 UTC] PHP Warning:  file_get_contents(): SSL operation failed with code 1. OpenSSL Error messages:
+error:1416F086:SSL routines:tls_process_server_certificate:certificate verify failed in /home/l2abag1yer7r/public_html/counter.php on line 5
+[23-Dec-2024 06:06:40 UTC] PHP Warning:  file_get_contents(): Failed to enable crypto in /home/l2abag1yer7r/public_html/counter.php on line 5
+[23-Dec-2024 06:06:40 UTC] PHP Warning:  file_get_contents(https://yashrajbusinessgroup.com/download-counter.txt): failed to open stream: operation failed in /home/l2abag1yer7r/public_html/counter.php on line 5
+[23-Dec-2024 06:06:40 UTC] PHP Warning:  file_put_contents(https://yashrajbusinessgroup.com/download-counter.txt): failed to open stream: HTTP wrapper does not support writeable connections in /home/l2abag1yer7r/public_html/counter.php on line 11
+[25-Dec-2024 12:39:36 UTC] PHP Warning:  file_get_contents(): SSL operation failed with code 1. OpenSSL Error messages:
+error:1416F086:SSL routines:tls_process_server_certificate:certificate verify failed in /home/l2abag1yer7r/public_html/counter.php on line 5
+[25-Dec-2024 12:39:36 UTC] PHP Warning:  file_get_contents(): Failed to enable crypto in /home/l2abag1yer7r/public_html/counter.php on line 5
+[25-Dec-2024 12:39:36 UTC] PHP Warning:  file_get_contents(https://yashrajbusinessgroup.com/download-counter.txt): failed to open stream: operation failed in /home/l2abag1yer7r/public_html/counter.php on line 5
+[25-Dec-2024 12:39:36 UTC] PHP Warning:  file_put_contents(https://yashrajbusinessgroup.com/download-counter.txt): failed to open stream: HTTP wrapper does not support writeable connections in /home/l2abag1yer7r/public_html/counter.php on line 11
+[10-Feb-2025 22:39:58 UTC] PHP Warning:  file_get_contents(): SSL operation failed with code 1. OpenSSL Error messages:
+error:1416F086:SSL routines:tls_process_server_certificate:certificate verify failed in /home/l2abag1yer7r/public_html/counter.php on line 5
+[10-Feb-2025 22:39:58 UTC] PHP Warning:  file_get_contents(): Failed to enable crypto in /home/l2abag1yer7r/public_html/counter.php on line 5
+[10-Feb-2025 22:39:58 UTC] PHP Warning:  file_get_contents(https://yashrajbusinessgroup.com/download-counter.txt): failed to open stream: operation failed in /home/l2abag1yer7r/public_html/counter.php on line 5
+[10-Feb-2025 22:39:58 UTC] PHP Warning:  file_put_contents(https://yashrajbusinessgroup.com/download-counter.txt): failed to open stream: HTTP wrapper does not support writeable connections in /home/l2abag1yer7r/public_html/counter.php on line 11
