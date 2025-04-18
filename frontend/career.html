@@ -4,48 +4,120 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    
+
     <!-- Title -->
-    <title>Yashraj Business Group</title>
-    
+    <title>Yashraj Business Group - Careers</title>
+
     <!-- Favicon -->
     <link rel="icon" type="image/png" sizes="32x32" href="favicon/favicon-32x32.png">
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="assets/css/bootstrap.min.css">
-    
+
     <!-- Font awesome CSS -->
     <link rel="stylesheet" href="assets/css/font-awesome.min.css">
-    
+
     <!-- Animate CSS -->
     <link rel="stylesheet" href="assets/css/animate.min.css">
-    
+
     <!-- OwlCarousel CSS -->
     <link rel="stylesheet" href="assets/css/owl.carousel.css">
-    
+
     <!-- Flaticon CSS -->
     <link rel="stylesheet" href="assets/flaticon/flaticon.css">
-    
+
     <!-- SlickNav CSS -->
     <link rel="stylesheet" href="assets/css/slicknav.min.css">
-    
+
     <!-- Featherlight  CSS -->
     <link rel="stylesheet" href="assets/css/featherlight.css">
-    
+
     <!-- Featherlight Gallery CSS -->
     <link rel="stylesheet" href="assets/css/featherlight.gallery.css">
-    
+
     <!-- Main CSS -->
     <link rel="stylesheet" href="assets/css/style.css">
-    
+
     <!-- Responsive CSS -->
     <link rel="stylesheet" href="assets/css/responsive.css">
 
+    <style>
+        .job-card {
+            background: #fff;
+            border-radius: 5px;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .job-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 25px rgba(0, 0, 0, 0.2);
+        }
+
+        .job-title {
+            color: #333;
+            font-size: 22px;
+            margin-bottom: 15px;
+        }
+
+        .job-meta {
+            margin-bottom: 20px;
+        }
+
+        .job-meta span {
+            margin-right: 20px;
+            color: #666;
+        }
+
+        .job-meta i {
+            color: #ff6b6b;
+            margin-right: 5px;
+        }
+
+        .application-form {
+            background: #fff;
+            padding: 40px;
+            border-radius: 5px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            margin-top: 50px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-control {
+            height: 50px;
+            border-radius: 3px;
+            border: 1px solid #ddd;
+        }
+
+        textarea.form-control {
+            height: 150px;
+        }
+
+        .btn-apply {
+            background: #ff6b6b;
+            color: #fff;
+            padding: 12px 30px;
+            border-radius: 3px;
+            border: none;
+            transition: all 0.3s ease;
+        }
+
+        .btn-apply:hover {
+            background: #ff5252;
+            color: #fff;
+        }
+    </style>
 </head>
+
 <body>
-    
-    
-    
+
+
+
     <!-- Header Area Start -->
     <header class="bleezy-header-area">
         <div class="header-right-overlay"></div>
@@ -58,8 +130,9 @@
                     <div class="col-md-6 col-sm-6 col-xs-6">
                         <div class="cart-top-menu">
                             <div class="login dropdown">
-                                <a href="#" class="dropdown-toggle cart-icon" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-                                   <i class="fa fa-shopping-bag"></i> Cart(02)
+                                <a href="#" class="dropdown-toggle cart-icon" id="dropdownMenu2" data-toggle="dropdown"
+                                    aria-haspopup="true" aria-expanded="true">
+                                    <i class="fa fa-shopping-bag"></i> Cart(02)
                                 </a>
                                 <div class="dropdown-menu cart-dropdown" aria-labelledby="dropdownMenu2">
                                     <h3>Recently added item(s)</h3>
@@ -149,7 +222,8 @@
                                 </div>
                                 <div class="col-md-4">
                                     <div class="single-top-right">
-                                        <p><i class="fa fa-file-pdf-o"></i> <a target="_blank" href="assets/YRBG-images/Brochure.pdf">Download Brochure</a></p>
+                                        <p><i class="fa fa-file-pdf-o"></i> <a target="_blank"
+                                                href="assets/YRBG-images/Brochure.pdf">Download Brochure</a></p>
                                         <div class="cart-top-menu">
                                             <div class="login dropdown">
                                                 <!-- <a href="#" class="dropdown-toggle cart-icon" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
@@ -228,9 +302,12 @@
                                                     <ul>
                                                         <li><a href="security-guard.html">security guard</a></li>
                                                         <li><a href="house-keeping.html">house keeping</a></li>
-                                                        <li><a href="facility-management.html">facility management-Cleaning</a></li>
-                                                        <li><a href="manpower-labour.html">manpower / labour supply</a></li>
-                                                        <li><a href="contract-staffing.html">contract staffing / project planning</a></li>
+                                                        <li><a href="facility-management.html">facility
+                                                                management-Cleaning</a></li>
+                                                        <li><a href="manpower-labour.html">manpower / labour supply</a>
+                                                        </li>
+                                                        <li><a href="contract-staffing.html">contract staffing / project
+                                                                planning</a></li>
                                                         <li><a href="pf-esic.html">pf esic & p.tax new reg.</a></li>
                                                         <li><a href="all-taxation.html">all taxation work</a></li>
                                                     </ul>
@@ -249,8 +326,8 @@
                                         </div>
                                         <div class="search-form">
                                             <form>
-                                                <input type="search" placeholder="Search..." >
-                                                <button type="submit" ><i class="fa fa-search"></i></button>
+                                                <input type="search" placeholder="Search...">
+                                                <button type="submit"><i class="fa fa-search"></i></button>
                                             </form>
                                         </div>
                                     </div>
@@ -263,9 +340,9 @@
         </div>
     </header>
     <!-- Header Area End -->
-    
-    
-    
+
+
+
     <!-- Breadcromb Area Start -->
     <section class="bleezy-breadcromb-area">
         <div class="breadcromb-top section_50">
@@ -296,9 +373,9 @@
         </div>
     </section>
     <!-- Breadcromb Area End -->
-    
-    
-    
+
+
+
     <!-- Career Page Start -->
     <section class="bleezy-about-page section_100">
         <div class="container">
@@ -306,14 +383,25 @@
                 <div class="col-md-6">
                     <div class="about-left">
                         <h2>Work with Yashraj Business Group</h2>
-                        <p style="text-align:justify;">Yashraj Business Group Pvt. Ltd. is an Indian owned and operated, private security company that provides armed and unarmed security guard services to clients nationwide across all industries. Our team is carefully recruited and well trained—we pride ourselves in being professional, responsive, and reliable.</p>
-                        <p style="text-align:justify;">We are always looking for responsible, hardworking people to join the team here at Yashraj Business Group Pvt. Ltd. We have a high employee retention rate, which we attribute to the following key factors:</p>
-                       <div style="padding-left:17px;"> <ul>
-                            <li style="list-style-type:disc">We value and respect our employees</li>
-                            <li style="list-style-type:disc">We look to employ professionals from the local communities in which we serve understanding that they bring specialized knowledge,greater potential for continuity & and a stronger sense of personal investment to the challenge</li>
-                            <li style="list-style-type:disc">We offer opportunities for advancement</li>
-                            <li style="list-style-type:disc">Our security professionals undergo a rigorous training regimen that includes classroom work</li>
-                        </ul></div>
+                        <p style="text-align:justify;">Yashraj Business Group Pvt. Ltd. is an Indian owned and operated,
+                            private security company that provides armed and unarmed security guard services to clients
+                            nationwide across all industries. Our team is carefully recruited and well trained—we pride
+                            ourselves in being professional, responsive, and reliable.</p>
+                        <p style="text-align:justify;">We are always looking for responsible, hardworking people to join
+                            the team here at Yashraj Business Group Pvt. Ltd. We have a high employee retention rate,
+                            which we attribute to the following key factors:</p>
+                        <div style="padding-left:17px;">
+                            <ul>
+                                <li style="list-style-type:disc">We value and respect our employees</li>
+                                <li style="list-style-type:disc">We look to employ professionals from the local
+                                    communities in which we serve understanding that they bring specialized
+                                    knowledge,greater potential for continuity & and a stronger sense of personal
+                                    investment to the challenge</li>
+                                <li style="list-style-type:disc">We offer opportunities for advancement</li>
+                                <li style="list-style-type:disc">Our security professionals undergo a rigorous training
+                                    regimen that includes classroom work</li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
                 <div class="col-md-6">
@@ -325,9 +413,9 @@
         </div>
     </section>
     <!-- Career Page End -->
-    
-    
-    
+
+
+
     <!-- Statement Area Start -->
     <section class="bleezy-statement-area section_b_100">
         <div class="container">
@@ -335,25 +423,36 @@
                 <div class="col-md-12 col-sm-12">
                     <div class="statement-left">
                         <h2>Our Commitment</h2>
-                        <p style="text-align:justify;">Yashraj Security Service and Placement Service will remove worries for clients who require security guards for their buildings, facilities, and events by providing excellent customer service for clients and in-depth training for their employees. Our program focuses on what it means to provide services of the highest quality and to exceed client expectations, recognizing employees who we believe are models for us all to follow.
-                            Gold Star Awardees will receive beautiful gold-star pins to show our appreciation for their work. Those employees who receive four stars will be eligible for a commendation bar and a financial bonus.</p>
-                        <br/>
-                            <p>Kindly send your RESUME on following email id <a href="mailto:hr.yashrajsp@gmail.com" style="color:red;"><b>hr.yashrajsp@gmail.com</b></a> Or call us on 9309510056 / 8090785907</p>
-                        <br/>
+                        <p style="text-align:justify;">Yashraj Security Service and Placement Service will remove
+                            worries for clients who require security guards for their buildings, facilities, and events
+                            by providing excellent customer service for clients and in-depth training for their
+                            employees. Our program focuses on what it means to provide services of the highest quality
+                            and to exceed client expectations, recognizing employees who we believe are models for us
+                            all to follow.
+                            Gold Star Awardees will receive beautiful gold-star pins to show our appreciation for their
+                            work. Those employees who receive four stars will be eligible for a commendation bar and a
+                            financial bonus.</p>
+                        <br />
+                        <p>Kindly send your RESUME on following email id <a href="mailto:hr.yashrajsp@gmail.com"
+                                style="color:red;"><b>hr.yashrajsp@gmail.com</b></a> Or call us on 9309510056 /
+                            8090785907</p>
+                        <br />
                         <p><b>Recipients will be awarded for outstanding efforts in the following areas:</b></p>
-                        <div style="padding-left:17px;"> <ul>
-                            <li style="list-style-type:disc">Customer Service</li>
-                            <li style="list-style-type:disc">Leadership</li>
-                            <li style="list-style-type:disc">Teamwork</li>
-                            <li style="list-style-type:disc">Demonstration of a core value</li>
-                        </ul></div>
+                        <div style="padding-left:17px;">
+                            <ul>
+                                <li style="list-style-type:disc">Customer Service</li>
+                                <li style="list-style-type:disc">Leadership</li>
+                                <li style="list-style-type:disc">Teamwork</li>
+                                <li style="list-style-type:disc">Demonstration of a core value</li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
     <!-- Statement Area End -->
-    
+
     <!-- Statement Bottom Area Start -->
     <section class="bleezy-statement-bottom-area-career section_100">
         <div class="container">
@@ -361,7 +460,7 @@
                 <div class="col-md-12">
                     <div class="statement-bottom-wrap">
                         <h2>What we offer</h2>
-                        <p>Extremely Competitive Wages</p> 
+                        <p>Extremely Competitive Wages</p>
                         <p>All Uniform Items | Employee Bonuses | Industry Leading Training</p>
                         <a href="#" class="bleezy-btn">learn more</a>
                     </div>
@@ -371,6 +470,68 @@
     </section>
     <!-- Statement Bottom Area End -->
 
+
+
+    <!-- Career Section Start -->
+    <div class="career-section section-padding " style="margin: 30px ;">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="section-title text-center " style="margin: 30px ;">
+                        <h2>Current Job Openings</h2>
+                        <p>Join our team and be part of our success story</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row" id="jobListings">
+                <!-- Job listings will be dynamically loaded here -->
+            </div>
+
+            <div class="application-form" id="applicationForm" style="display: none;">
+                <h3 class="text-center mb-4">Apply for <span id="jobTitle"></span></h3>
+                <form id="submitApplication">
+                    <input type="hidden" id="jobId">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="name">Full Name</label>
+                                <input type="text" class="form-control" id="name" required>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="email">Email</label>
+                                <input type="email" class="form-control" id="email" required>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="phone">Phone</label>
+                                <input type="tel" class="form-control" id="phone" required>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="resume">Resume (PDF only)</label>
+                                <input type="file" class="form-control" id="resume" accept=".pdf" required>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="coverLetter">Cover Letter</label>
+                        <textarea class="form-control" id="coverLetter" rows="4" required></textarea>
+                    </div>
+                    <div class="text-center">
+                        <button type="submit" class="btn btn-apply">Submit Application</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <!-- Career Section End -->
 
     <!-- Footer Area Start -->
     <footer class="bleezy-footer-area">
@@ -385,7 +546,8 @@
                                 </a>
                             </div>
                             <div class="footer-widget-text">
-                                <p>YASHRAJ BUSINESS GROUP PVT.LTD. (Formerly Known as YASHRAJ SECURITY) is a start-up company founded by Mr.Vaibhav Amrut Patil....</p>
+                                <p>YASHRAJ BUSINESS GROUP PVT.LTD. (Formerly Known as YASHRAJ SECURITY) is a start-up
+                                    company founded by Mr.Vaibhav Amrut Patil....</p>
                             </div>
                         </div>
                     </div>
@@ -407,8 +569,8 @@
                             <h3>Newsletter</h3>
                             <p>Don't miss to subscribe to our news feeds, kindly fill the form below.</p>
                             <form>
-                                <input type="email" placeholder="Subscribe" >
-                                <button type="submit" ><i class="fa fa-envelope-open-o"></i></button>
+                                <input type="email" placeholder="Subscribe">
+                                <button type="submit"><i class="fa fa-envelope-open-o"></i></button>
                             </form>
                         </div>
                     </div>
@@ -429,40 +591,91 @@
     </footer>
     <!-- Footer Area End -->
 
-    
-    
-    <!-- jQuery -->
-    <script src="assets/js/jquery.min.js"></script>
-    
-    <!-- Bootstrap JS -->
+    <!-- All JS Here -->
+    <script src="assets/js/jquery-1.12.4.min.js"></script>
     <script src="assets/js/bootstrap.min.js"></script>
-    
-    <!-- Featherlight JS -->
-    <script src="assets/js/featherlight.js"></script>
-    
-    <!-- Featherlight Gallery JS -->
-    <script src="assets/js/featherlight.gallery.js"></script>
-    
-    <!-- OwlCarousel JS -->
     <script src="assets/js/owl.carousel.min.js"></script>
-    
-    <!-- SlickNav JS -->
     <script src="assets/js/jquery.slicknav.min.js"></script>
-    
-    <!-- Gmap JS -->
-    <script src="assets/js/gmap.js"></script>
-    
-    <!-- Progressbar js -->
-    <script src="assets/js/progressbar.min.js"></script>
-    
-    <!-- Counter JS -->
-    <script src="assets/js/jquery.counterup.min.js"></script>
-    
-    <!-- Counter JS -->
-    <script src="assets/js/waypoints-min.js"></script>
-    
-    <!-- Custom JS -->
-    <script src="assets/js/custom.js"></script>
-    
+    <script src="assets/js/featherlight.js"></script>
+    <script src="assets/js/featherlight.gallery.js"></script>
+    <script src="assets/js/jquery.sticky.js"></script>
+    <script src="assets/js/main.js"></script>
+
+    <script>
+        // Fetch and display jobs
+        async function loadJobs() {
+            try {
+                const response = await fetch('http://localhost:5000/api/jobs');
+                const jobs = await response.json();
+
+                const jobListings = document.getElementById('jobListings');
+                jobListings.innerHTML = jobs.map(job => `
+                    <div class="col-md-6">
+                        <div class="job-card">
+                            <h3 class="job-title">${job.title}</h3>
+                            <div class="job-meta">
+                                <span><i class="fa fa-map-marker"></i> ${job.location}</span>
+                                <span><i class="fa fa-briefcase"></i> ${job.type}</span>
+                                <span><i class="fa fa-money"></i> ${job.salary}</span>
+                            </div>
+                            <p>${job.description}</p>
+                            <h4>Requirements:</h4>
+                            <ul>
+                                ${job.requirements.map(req => `<li>${req}</li>`).join('')}
+                            </ul>
+                            <button class="btn btn-apply" onclick="showApplicationForm('${job._id}', '${job.title}')">
+                                Apply Now
+                            </button>
+                        </div>
+                    </div>
+                `).join('');
+            } catch (error) {
+                console.error('Error loading jobs:', error);
+            }
+        }
+
+        // Show application form
+        function showApplicationForm(jobId, jobTitle) {
+            document.getElementById('applicationForm').style.display = 'block';
+            document.getElementById('jobTitle').textContent = jobTitle;
+            document.getElementById('jobId').value = jobId;
+            window.scrollTo(0, document.body.scrollHeight);
+        }
+
+        // Handle application submission
+        document.getElementById('submitApplication').addEventListener('submit', async (e) => {
+            e.preventDefault();
+
+            const formData = new FormData();
+            formData.append('job', document.getElementById('jobId').value);
+            formData.append('name', document.getElementById('name').value);
+            formData.append('email', document.getElementById('email').value);
+            formData.append('phone', document.getElementById('phone').value);
+            formData.append('resume', document.getElementById('resume').files[0]);
+            formData.append('coverLetter', document.getElementById('coverLetter').value);
+
+            try {
+                const response = await fetch('http://localhost:5000/api/applications', {
+                    method: 'POST',
+                    body: formData
+                });
+                
+                if (response.ok) {
+                    alert('Application submitted successfully!');
+                    document.getElementById('submitApplication').reset();
+                    document.getElementById('applicationForm').style.display = 'none';
+                } else {
+                    throw new Error('Failed to submit application');
+                }
+            } catch (error) {
+                console.error('Error submitting application:', error);
+                alert('Failed to submit application. Please try again.');
+            }
+        });
+
+        // Load jobs when page loads
+        loadJobs();
+    </script>
 </body>
+
 </html>
