@@ -35,6 +35,10 @@ router.post('/', upload.single('resume'), async (req, res) => {
             resource_type: 'raw',
             folder: 'resumes',
             public_id: `${Date.now()}-${name.replace(/\s+/g, '-')}`,
+            format: 'pdf',
+            type: 'upload',
+            use_filename: true,
+            unique_filename: false,
             flags: 'attachment'
         });
 
@@ -43,7 +47,7 @@ router.post('/', upload.single('resume'), async (req, res) => {
             name,
             email,
             phone,
-            resume: resumeUpload, // Store raw URL for direct download
+            resume: resumeUpload.secure_url, // Store the secure URL from Cloudinary
             coverLetter
         });
 
@@ -52,7 +56,8 @@ router.post('/', upload.single('resume'), async (req, res) => {
         console.error('Upload Error:', error);
         res.status(400).json({ message: error.message || 'Application submission failed' });
     }
-});// Get all applications (admin only)
+});
+// Get all applications (admin only)
 router.get('/', protect, async (req, res) => {
     try {
         const applications = await Application.find()
