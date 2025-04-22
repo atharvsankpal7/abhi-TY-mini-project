@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 const { protect } = require('../middleware/authMiddleware');
 const Job = require('../models/Job');
+const Application = require('../models/Application');
 
 // Get all jobs
 router.get('/', async (req, res) => {
@@ -58,13 +59,14 @@ router.put('/:id', protect, async (req, res) => {
 });
 
 // Delete job (Admin only)
-router.delete('/:id', protect, async (req, res) => {
+router.delete('/:id',protect, async (req, res) => {
     try {
         const job = await Job.findById(req.params.id);
         if (!job) {
             return res.status(404).json({ message: 'Job not found' });
         }
-        await job.remove();
+        await Application.deleteMany({ job: req.params.id });
+        await Job.findByIdAndRemove(req.params.id);
         res.json({ message: 'Job removed' });
     } catch (error) {
         res.status(500).json({ message: error.message });

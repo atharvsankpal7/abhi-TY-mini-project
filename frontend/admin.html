@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -12,19 +13,23 @@
             margin: 100px auto;
             padding: 20px;
             border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         }
+
         .dashboard {
             display: none;
         }
+
         .nav-tabs .nav-link.active {
             font-weight: bold;
         }
+
         .application-card {
             margin-bottom: 20px;
         }
     </style>
 </head>
+
 <body>
     <div class="container">
         <!-- Login Form -->
@@ -183,7 +188,7 @@
                     }
                 });
                 const jobs = await response.json();
-                
+
                 const jobsList = document.getElementById('jobsList');
                 jobsList.innerHTML = jobs.map(job => `
                     <div class="col-md-6 mb-4">
@@ -218,8 +223,11 @@
                     }
                 });
                 const applications = await response.json();
-                
                 const applicationsList = document.getElementById('applicationsList');
+                if(applications.length === 0){
+                    applicationsList.innerHTML = '<p>No applications found.</p>';
+                    return;
+                }
                 applicationsList.innerHTML = applications.map(app => `
                     <div class="card application-card">
                         <div class="card-body">
@@ -231,6 +239,9 @@
                             <a href="${app.resume}" target="_blank" class="btn btn-primary me-2">
                                 <i class="fas fa-file-pdf"></i> View Resume
                             </a>
+                            <button class="btn btn-danger" onclick="deleteApplication('${app._id}')">
+                                <i class="fas fa-trash"></i> Delete
+                            </button>     
                             <select class="form-select d-inline-block w-auto" onchange="updateStatus('${app._id}', this.value)">
                                 <option value="Pending" ${app.status === 'Pending' ? 'selected' : ''}>Pending</option>
                                 <option value="Reviewed" ${app.status === 'Reviewed' ? 'selected' : ''}>Reviewed</option>
@@ -262,7 +273,7 @@
                     }
                 });
                 const job = await response.json();
-                
+
                 document.getElementById('modalTitle').textContent = 'Edit Job';
                 document.getElementById('jobId').value = job._id;
                 document.getElementById('title').value = job.title;
@@ -271,7 +282,7 @@
                 document.getElementById('location').value = job.location;
                 document.getElementById('type').value = job.type;
                 document.getElementById('salary').value = job.salary;
-                
+
                 new bootstrap.Modal(document.getElementById('jobModal')).show();
             } catch (error) {
                 console.error('Error loading job:', error);
@@ -326,7 +337,7 @@
                         'Authorization': `Bearer ${token}`
                     }
                 });
-
+                console.log(response);
                 if (response.ok) {
                     loadJobs();
                 } else {
@@ -358,6 +369,28 @@
                 alert('Failed to update status');
             }
         }
+
+        async function deleteApplication(applicationId) {
+            if (!confirm('Are you sure you want to delete this application?')) return;
+            try {
+                const response = await fetch(`http://localhost:5000/api/applications/${applicationId}`, {
+                    method: 'DELETE',
+                    headers: {
+                        'Authorization': `Bearer ${token}`
+                    }
+                });
+                if (response.ok) {
+                    loadApplications();
+                } else {
+                    throw new Error('Failed to delete application');
+                }
+            } catch (error) {
+                console.error('Error deleting application:', error);
+                alert('Failed to delete application');
+            }
+
+        }
     </script>
 </body>
+
 </html>
