@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     
     <!-- Title -->
-    <title>Yashraj Business Group - Blog</title>
+    <title>Yashraj Business Group - Blog Post</title>
     
     <!-- Favicon -->
     <link rel="icon" type="image/png" sizes="32x32" href="favicon/favicon-32x32.png">
@@ -139,7 +139,7 @@
                 <div class="row">
                     <div class="col-md-12">
                         <div class="breadcromb-top-text" style="float:right;">
-                            <h2>Blogs</h2>
+                            <h2 id="blogTitle">Blog Post</h2>
                         </div>
                     </div>
                 </div>
@@ -152,8 +152,9 @@
                         <div class="breadcromb-bottom-text">
                             <ul>
                                 <li><a href="index.html">home</a></li>
+                                <li><a href="blog.html"><i class="fa fa-long-arrow-right"></i> blog</a></li>
                                 <li><a href="#"><i class="fa fa-long-arrow-right"></i></a></li>
-                                <li>Blog</li>
+                                <li id="breadcrumbTitle">Blog Post</li>
                             </ul>
                         </div>
                     </div>
@@ -163,27 +164,51 @@
     </section>
     <!-- Breadcromb Area End -->
     
-    <!-- Blog List Section Start -->
-    <section class="blog-area section_70">
+    <!-- Blog Details Area Start -->
+    <section class="blog-details-area section_70">
         <div class="container">
             <div class="row">
                 <div class="col-md-8">
-                    <div class="row" id="blogContainer">
-                        <!-- Blog posts will be loaded here -->
+                    <div class="blog-details" id="blogDetails">
+                        <!-- Blog details will be loaded here -->
+                        <div class="text-center">
+                            <i class="fa fa-spinner fa-spin fa-3x"></i>
+                            <p>Loading blog post...</p>
+                        </div>
                     </div>
                     
-                    <!-- Pagination -->
-                    <div class="row">
-                        <div class="col-md-12">
-                            <div class="pagination-box">
-                                <ul class="pagination">
-                                    <li><a href="#"><i class="fa fa-angle-double-left"></i></a></li>
-                                    <li class="active"><a href="#">1</a></li>
-                                    <li><a href="#">2</a></li>
-                                    <li><a href="#">3</a></li>
-                                    <li><a href="#"><i class="fa fa-angle-double-right"></i></a></li>
-                                </ul>
+                    <!-- Share Section -->
+                    <div class="blog-share-tag">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="blog-share">
+                                    <h4>Share This Post</h4>
+                                    <ul>
+                                        <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                                        <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                                        <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+                                        <li><a href="#"><i class="fa fa-pinterest"></i></a></li>
+                                    </ul>
+                                </div>
                             </div>
+                            <div class="col-md-6">
+                                <div class="blog-tag">
+                                    <h4>Tags</h4>
+                                    <ul>
+                                        <li><a href="#">security</a></li>
+                                        <li><a href="#">business</a></li>
+                                        <li><a href="#">facility</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Related Posts -->
+                    <div class="related-post-area">
+                        <h3>Related Posts</h3>
+                        <div class="row" id="relatedPostsContainer">
+                            <!-- Related posts will be loaded here -->
                         </div>
                     </div>
                 </div>
@@ -223,7 +248,7 @@
             </div>
         </div>
     </section>
-    <!-- Blog List Section End -->
+    <!-- Blog Details Area End -->
     
     <!-- Footer Area Start -->
     <footer class="bleezy-footer-area">
@@ -281,11 +306,10 @@
         </div>
     </footer>
     <!-- Footer Area End -->
+       <!-- jQuery -->
+       <script src="assets/js/jquery.min.js"></script>
     
-    <!-- jQuery -->
-    <script src="assets/js/jquery.min.js"></script>
-    
-    <!-- Bootstrap JS -->
+      <!-- Bootstrap JS -->
     <script src="assets/js/bootstrap.min.js"></script>
     
     <!-- Featherlight JS -->
@@ -316,15 +340,165 @@
     <!-- Custom JS -->
     <script src="assets/js/custom.js"></script>
     
-    <!-- Blog JS -->
+    <!-- Blog Single Page JS -->
     <script>
-        // Fetch all blogs when the page loads
+        // Get blog ID from URL parameters
+        function getUrlParameter(name) {
+            name = name.replace(/[\[]/, '\\[').replace(/[\]]/, '\\]');
+            var regex = new RegExp('[\\?&]' + name + '=([^&#]*)');
+            var results = regex.exec(location.search);
+            return results === null ? '' : decodeURIComponent(results[1].replace(/\+/g, ' '));
+        }
+
+        // Fetch and display a single blog post when the page loads
         document.addEventListener('DOMContentLoaded', function() {
-            fetchBlogs();
+            const blogId = getUrlParameter('id');
+            
+            if (!blogId) {
+                window.location.href = 'blog.html'; // Redirect to blog list if no ID is provided
+                return;
+            }
+            
+            fetchSingleBlog(blogId);
+            fetchRecentBlogs();
         });
 
-        // Function to fetch blogs from the API
-        function fetchBlogs() {
+        // Function to fetch a single blog from the API
+        function fetchSingleBlog(blogId) {
+            fetch(`http://localhost:5000/api/blogs/${blogId}`)
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('Network response was not ok');
+                    }
+                    return response.json();
+                })
+                .then(blog => {
+                    displayBlogDetails(blog);
+                    fetchRelatedPosts(blog._id);
+                    
+                    // Update page title
+                    document.title = `${blog.title} - Yashraj Business Group`;
+                    
+                    // Update breadcrumb and page heading
+                    document.getElementById('blogTitle').textContent = blog.title;
+                    document.getElementById('breadcrumbTitle').textContent = blog.title;
+                })
+                .catch(error => {
+                    console.error('Error fetching blog:', error);
+                    document.getElementById('blogDetails').innerHTML = `
+                        <div class="alert alert-warning">
+                            Failed to load blog post. Please try again later or <a href="blog.html">return to blog list</a>.
+                        </div>
+                    `;
+                });
+        }
+
+        // Function to display blog details
+        function displayBlogDetails(blog) {
+            const blogDetailsContainer = document.getElementById('blogDetails');
+            const date = new Date(blog.createdAt);
+            const formattedDate = date.toLocaleDateString('en-US', {
+                year: 'numeric',
+                month: 'long',
+                day: 'numeric'
+            });
+
+            // Create blog content with proper formatting
+            // We're assuming the content might contain HTML formatting
+            const blogHtml = `
+                <div class="blog-image">
+                    <img src="${blog.image}" alt="${blog.title}">
+                    <div class="post-date">
+                        <p>${date.getDate()}<span>${date.toLocaleDateString('en-US', {month: 'short'})}</span></p>
+                    </div>
+                </div>
+                <div class="blog-meta">
+                    <ul>
+                        <li><i class="fa fa-user"></i> <a href="#">${blog.author.username}</a></li>
+                        <li><i class="fa fa-calendar"></i> <a href="#">${formattedDate}</a></li>
+                    </ul>
+                </div>
+                <h2>${blog.title}</h2>
+                <div class="blog-content">
+                    ${formatContent(blog.content)}
+                </div>
+            `;
+            
+            blogDetailsContainer.innerHTML = blogHtml;
+        }
+
+        // Function to format blog content, splitting paragraphs
+        function formatContent(content) {
+            // If content already has HTML formatting, return as is
+            if (content.includes('<p>') || content.includes('<div>')) {
+                return content;
+            }
+            
+            // Otherwise, split by new lines and wrap in paragraph tags
+            return content.split('\n\n')
+                .filter(para => para.trim() !== '')
+                .map(para => `<p>${para}</p>`)
+                .join('');
+        }
+
+        // Function to fetch related posts
+        function fetchRelatedPosts(currentBlogId) {
+            fetch('/api/blogs')
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('Network response was not ok');
+                    }
+                    return response.json();
+                })
+                .then(blogs => {
+                    // Filter out current blog and get max 3 related posts
+                    const relatedBlogs = blogs
+                        .filter(blog => blog._id !== currentBlogId)
+                        .slice(0, 3);
+                    
+                    displayRelatedPosts(relatedBlogs);
+                })
+                .catch(error => {
+                    console.error('Error fetching related blogs:', error);
+                    document.getElementById('relatedPostsContainer').innerHTML = 'Unable to load related posts.';
+                });
+        }
+
+        // Function to display related posts
+        function displayRelatedPosts(blogs) {
+            const relatedPostsContainer = document.getElementById('relatedPostsContainer');
+            relatedPostsContainer.innerHTML = '';
+
+            if (blogs.length === 0) {
+                relatedPostsContainer.innerHTML = '<p>No related posts found.</p>';
+                return;
+            }
+
+            blogs.forEach(blog => {
+                const date = new Date(blog.createdAt);
+                
+                const relatedPostHtml = `
+                    <div class="col-md-4">
+                        <div class="single-related-post">
+                            <div class="related-post-img">
+                                <a href="blog-single.html?id=${blog._id}">
+                                    <img src="${blog.image}" alt="${blog.title}">
+                                </a>
+                            </div>
+                            <div class="related-post-text">
+                                <h4><a href="blog-single.html?id=${blog._id}">${blog.title}</a></h4>
+                                <p>${date.toLocaleDateString('en-US', {year: 'numeric', month: 'short', day: 'numeric'})}</p>
+                            </div>
+                        </div>
+                    </div>
+                `;
+                
+                relatedPostsContainer.innerHTML += relatedPostHtml;
+            });
+        }
+
+        // Function to fetch recent blogs for sidebar
+        function fetchRecentBlogs() {
             fetch('http://localhost:5000/api/blogs')
                 .then(response => {
                     if (!response.ok) {
@@ -333,68 +507,13 @@
                     return response.json();
                 })
                 .then(blogs => {
-                    displayBlogs(blogs);
-                    displayRecentPosts(blogs.slice(0, 5)); // Show 5 most recent posts in sidebar
+                    // Get 5 most recent posts for sidebar
+                    displayRecentPosts(blogs.slice(0, 5));
                 })
                 .catch(error => {
-                    console.error('Error fetching blogs:', error);
-                    document.getElementById('blogContainer').innerHTML = `
-                        <div class="col-md-12">
-                            <div class="alert alert-warning">
-                                Failed to load blogs. Please try again later.
-                            </div>
-                        </div>
-                    `;
+                    console.error('Error fetching recent blogs:', error);
+                    document.getElementById('recentPostsContainer').innerHTML = 'Unable to load recent posts.';
                 });
-        }
-
-        // Function to display blogs in the main container
-        function displayBlogs(blogs) {
-            const blogContainer = document.getElementById('blogContainer');
-            blogContainer.innerHTML = '';
-
-            if (blogs.length === 0) {
-                blogContainer.innerHTML = `
-                    <div class="col-md-12">
-                        <div class="alert alert-info">
-                            No blogs found. Check back later for updates.
-                        </div>
-                    </div>
-                `;
-                return;
-            }
-
-            blogs.forEach(blog => {
-                const date = new Date(blog.createdAt);
-                const formattedDate = date.toLocaleDateString('en-US', {
-                    year: 'numeric',
-                    month: 'long',
-                    day: 'numeric'
-                });
-
-                const blogHtml = `
-                    <div class="col-md-6">
-                        <div class="single-blog">
-                            <div class="blog-image">
-                                <img src="${blog.image}" alt="${blog.title}">
-                                <div class="post-date">
-                                    <p>${date.getDate()}<span>${date.toLocaleDateString('en-US', {month: 'short'})}</span></p>
-                                </div>
-                            </div>
-                            <div class="blog-details">
-                                <h3><a href="blog-single.html?id=${blog._id}">${blog.title}</a></h3>
-                                <div class="post-meta">
-                                    <p>By <a href="#">${blog.author.username}</a> | <a href="#">${formattedDate}</a></p>
-                                </div>
-                                <p>${blog.content.substring(0, 150)}${blog.content.length > 150 ? '...' : ''}</p>
-                                <a href="blog-single.html?id=${blog._id}" class="read-more">Read More <i class="fa fa-angle-double-right"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                `;
-                
-                blogContainer.innerHTML += blogHtml;
-            });
         }
 
         // Function to display recent posts in the sidebar

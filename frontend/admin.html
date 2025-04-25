@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -27,9 +26,40 @@
         .application-card {
             margin-bottom: 20px;
         }
+
+        .testimonial-card {
+            background: #fff;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .testimonial-image {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 15px;
+        }
+
+        .blog-card {
+            background: #fff;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .blog-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 8px;
+            margin-bottom: 15px;
+        }
     </style>
 </head>
-
 <body>
     <div class="container">
         <!-- Login Form -->
@@ -64,6 +94,12 @@
                 <li class="nav-item">
                     <a class="nav-link" data-bs-toggle="tab" href="#applications">Applications</a>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link" data-bs-toggle="tab" href="#testimonials">Testimonials</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" data-bs-toggle="tab" href="#blogs">Blogs</a>
+                </li>
             </ul>
 
             <div class="tab-content">
@@ -81,6 +117,26 @@
                 <div class="tab-pane fade" id="applications">
                     <div id="applicationsList">
                         <!-- Applications will be loaded here -->
+                    </div>
+                </div>
+
+                <!-- Testimonials Tab -->
+                <div class="tab-pane fade" id="testimonials">
+                    <button class="btn btn-primary mb-3" onclick="showAddTestimonialModal()">
+                        <i class="fas fa-plus"></i> Add New Testimonial
+                    </button>
+                    <div id="testimonialsList" class="row">
+                        <!-- Testimonials will be loaded here -->
+                    </div>
+                </div>
+
+                <!-- Blogs Tab -->
+                <div class="tab-pane fade" id="blogs">
+                    <button class="btn btn-primary mb-3" onclick="showAddBlogModal()">
+                        <i class="fas fa-plus"></i> Add New Blog
+                    </button>
+                    <div id="blogsList" class="row">
+                        <!-- Blogs will be loaded here -->
                     </div>
                 </div>
             </div>
@@ -137,6 +193,76 @@
         </div>
     </div>
 
+    <!-- Add/Edit Testimonial Modal -->
+    <div class="modal fade" id="testimonialModal" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="testimonialModalTitle">Add New Testimonial</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="testimonialForm">
+                        <input type="hidden" id="testimonialId">
+                        <div class="mb-3">
+                            <label for="clientName" class="form-label">Client Name</label>
+                            <input type="text" class="form-control" id="clientName" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="clientPosition" class="form-label">Position/Company</label>
+                            <input type="text" class="form-control" id="clientPosition" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="testimonialContent" class="form-label">Testimonial</label>
+                            <textarea class="form-control" id="testimonialContent" rows="4" required></textarea>
+                        </div>
+                        <div class="mb-3">
+                            <label for="clientImage" class="form-label">Client Image</label>
+                            <input type="file" class="form-control" id="clientImage" accept="image/*">
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary" onclick="saveTestimonial()">Save Testimonial</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Add/Edit Blog Modal -->
+    <div class="modal fade" id="blogModal" tabindex="-1">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="blogModalTitle">Add New Blog</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="blogForm">
+                        <input type="hidden" id="blogId">
+                        <div class="mb-3">
+                            <label for="blogTitle" class="form-label">Title</label>
+                            <input type="text" class="form-control" id="blogTitle" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="blogContent" class="form-label">Content</label>
+                            <textarea class="form-control" id="blogContent" rows="6" required></textarea>
+                        </div>
+                        <div class="mb-3">
+                            <label for="blogImage" class="form-label">Image</label>
+                            <input type="file" class="form-control" id="blogImage" accept="image/*">
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary" onclick="saveBlog()">Save Blog</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script>
         let token = '';
@@ -163,6 +289,8 @@
                     document.getElementById('dashboard').style.display = 'block';
                     loadJobs();
                     loadApplications();
+                    loadTestimonials();
+                    loadBlogs();
                 } else {
                     alert('Invalid credentials');
                 }
@@ -256,12 +384,96 @@
             }
         }
 
+        // Load Testimonials
+        async function loadTestimonials() {
+            try {
+                const response = await fetch('http://localhost:5000/api/testimonials', {
+                    headers: {
+                        'Authorization': `Bearer ${token}`
+                    }
+                });
+                const testimonials = await response.json();
+
+                const testimonialsList = document.getElementById('testimonialsList');
+                testimonialsList.innerHTML = testimonials.map(testimonial => `
+                    <div class="col-md-4 mb-4">
+                        <div class="testimonial-card">
+                            <img src="${testimonial.image}" alt="${testimonial.name}" class="testimonial-image">
+                            <h4>${testimonial.name}</h4>
+                            <p class="text-muted">${testimonial.position}</p>
+                            <p>${testimonial.content}</p>
+                            <div class="mt-3">
+                                <button class="btn btn-sm btn-primary me-2" onclick="editTestimonial('${testimonial._id}')">
+                                    <i class="fas fa-edit"></i> Edit
+                                </button>
+                                <button class="btn btn-sm btn-danger" onclick="deleteTestimonial('${testimonial._id}')">
+                                    <i class="fas fa-trash"></i> Delete
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                `).join('');
+            } catch (error) {
+                console.error('Error loading testimonials:', error);
+            }
+        }
+
+        // Load Blogs
+        async function loadBlogs() {
+            try {
+                const response = await fetch('http://localhost:5000/api/blogs', {
+                    headers: {
+                        'Authorization': `Bearer ${token}`
+                    }
+                });
+                const blogs = await response.json();
+
+                const blogsList = document.getElementById('blogsList');
+                blogsList.innerHTML = blogs.map(blog => `
+                    <div class="col-md-4 mb-4">
+                        <div class="blog-card">
+                            <img src="${blog.image}" alt="${blog.title}" class="blog-image">
+                            <h4>${blog.title}</h4>
+                            <p class="text-muted">By ${blog.author?.username || 'Admin'} • ${new Date(blog.createdAt).toLocaleDateString()}</p>
+                            <p>${blog.content.substring(0, 150)}...</p>
+                            <div class="mt-3">
+                                <button class="btn btn-sm btn-primary me-2" onclick="editBlog('${blog._id}')">
+                                    <i class="fas fa-edit"></i> Edit
+                                </button>
+                                <button class="btn btn-sm btn-danger" onclick="deleteBlog('${blog._id}')">
+                                    <i class="fas fa-trash"></i> Delete
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                `).join('');
+            } catch (error) {
+                console.error('Error loading blogs:', error);
+            }
+        }
+
         // Show Add Job Modal
         function showAddJobModal() {
             document.getElementById('modalTitle').textContent = 'Add New Job';
             document.getElementById('jobForm').reset();
             document.getElementById('jobId').value = '';
             new bootstrap.Modal(document.getElementById('jobModal')).show();
+        }
+
+        // Show Add Testimonial Modal
+        function showAddTestimonialModal() {
+            document.getElementById('testimonialModalTitle').textContent = 'Add New Testimonial';
+            document.getElementById('testimonialForm').reset();
+            document.getElementById('testimonialId').value = '';
+            new bootstrap.Modal(document.getElementById('testimonialModal')).show();
+        }
+
+        // Show Add Blog Modal
+        function showAddBlogModal() {
+            document.getElementById('blogModalTitle').textContent = 'Add New Blog';
+            document.getElementById('blogForm').reset();
+            document.getElementById('blogId').value = '';
+            new bootstrap.Modal(document.getElementById('blogModal')).show();
         }
 
         // Edit Job
@@ -286,6 +498,49 @@
                 new bootstrap.Modal(document.getElementById('jobModal')).show();
             } catch (error) {
                 console.error('Error loading job:', error);
+            }
+        }
+
+        // Edit Testimonial
+        async function editTestimonial(testimonialId) {
+            try {
+                const response = await fetch(`http://localhost:5000/api/testimonials/${testimonialId}`, {
+                    headers: {
+                        'Authorization': `Bearer ${token}`
+                    }
+                });
+                const testimonial = await response.json();
+
+                document.getElementById('testimonialModalTitle').textContent = 'Edit Testimonial';
+                document.getElementById('testimonialId').value = testimonial._id;
+                document.getElementById('clientName').value = testimonial.name;
+                document.getElementById('clientPosition').value = testimonial.position;
+                document.getElementById('testimonialContent').value = testimonial.content;
+
+                new bootstrap.Modal(document.getElementById('testimonialModal')).show();
+            } catch (error) {
+                console.error('Error loading testimonial:', error);
+            }
+        }
+
+        // Edit Blog
+        async function editBlog(blogId) {
+            try {
+                const response = await fetch(`http://localhost:5000/api/blogs/${blogId}`, {
+                    headers: {
+                        'Authorization': `Bearer ${token}`
+                    }
+                });
+                const blog = await response.json();
+
+                document.getElementById('blogModalTitle').textContent = 'Edit Blog';
+                document.getElementById('blogId').value = blog._id;
+                document.getElementById('blogTitle').value = blog.title;
+                document.getElementById('blogContent').value = blog.content;
+
+                new bootstrap.Modal(document.getElementById('blogModal')).show();
+            } catch (error) {
+                console.error('Error loading blog:', error);
             }
         }
 
@@ -326,6 +581,79 @@
             }
         }
 
+        // Save Testimonial
+        async function saveTestimonial() {
+            const testimonialId = document.getElementById('testimonialId').value;
+            const formData = new FormData();
+            formData.append('name', document.getElementById('clientName').value);
+            formData.append('position', document.getElementById('clientPosition').value);
+            formData.append('content', document.getElementById('testimonialContent').value);
+
+            const imageFile = document.getElementById('clientImage').files[0];
+            if (imageFile) {
+                formData.append('image', imageFile);
+            }
+
+            try {
+                const response = await fetch(
+                    `http://localhost:5000/api/testimonials${testimonialId ? `/${testimonialId}` : ''}`,
+                    {
+                        method: testimonialId ? 'PUT' : 'POST',
+                        headers: {
+                            'Authorization': `Bearer ${token}`
+                        },
+                        body: formData
+                    }
+                );
+
+                if (response.ok) {
+                    bootstrap.Modal.getInstance(document.getElementById('testimonialModal')).hide();
+                    loadTestimonials();
+                } else {
+                    throw new Error('Failed to save testimonial');
+                }
+            } catch (error) {
+                console.error('Error saving testimonial:', error);
+                alert('Failed to save testimonial');
+            }
+        }
+
+        // Save Blog
+        async function saveBlog() {
+            const blogId = document.getElementById('blogId').value;
+            const formData = new FormData();
+            formData.append('title', document.getElementById('blogTitle').value);
+            formData.append('content', document.getElementById('blogContent').value);
+
+            const imageFile = document.getElementById('blogImage').files[0];
+            if (imageFile) {
+                formData.append('image', imageFile);
+            }
+
+            try {
+                const response = await fetch(
+                    `http://localhost:5000/api/blogs${blogId ? `/${blogId}` : ''}`,
+                    {
+                        method: blogId ? 'PUT' : 'POST',
+                        headers: {
+                            'Authorization': `Bearer ${token}`
+                        },
+                        body: formData
+                    }
+                );
+
+                if (response.ok) {
+                    bootstrap.Modal.getInstance(document.getElementById('blogModal')).hide();
+                    loadBlogs();
+                } else {
+                    throw new Error('Failed to save blog');
+                }
+            } catch (error) {
+                console.error('Error saving blog:', error);
+                alert('Failed to save blog');
+            }
+        }
+
         // Delete Job
         async function deleteJob(jobId) {
             if (!confirm('Are you sure you want to delete this job?')) return;
@@ -346,6 +674,52 @@
             } catch (error) {
                 console.error('Error deleting job:', error);
                 alert('Failed to delete job');
+            }
+        }
+
+        // Delete Testimonial
+        async function deleteTestimonial(testimonialId) {
+            if (!confirm('Are you sure you want to delete this testimonial?')) return;
+
+            try {
+                const response = await fetch(`http://localhost:5000/api/testimonials/${testimonialId}`, {
+                    method: 'DELETE',
+                    headers: {
+                        'Authorization': `Bearer ${token}`
+                    }
+                });
+
+                if (response.ok) {
+                    loadTestimonials();
+                } else {
+                    throw new Error('Failed to delete testimonial');
+                }
+            } catch (error) {
+                console.error('Error deleting testimonial:', error);
+                alert('Failed to delete testimonial');
+            }
+        }
+
+        // Delete Blog
+        async function deleteBlog(blogId) {
+            if (!confirm('Are you sure you want to delete this blog?')) return;
+
+            try {
+                const response = await fetch(`http://localhost:5000/api/blogs/${blogId}`, {
+                    method: 'DELETE',
+                    headers: {
+                        'Authorization': `Bearer ${token}`
+                    }
+                });
+
+                if (response.ok) {
+                    loadBlogs();
+                } else {
+                    throw new Error('Failed to delete blog');
+                }
+            } catch (error) {
+                console.error('Error deleting blog:', error);
+                alert('Failed to delete blog');
             }
         }
 
@@ -388,9 +762,17 @@
                 console.error('Error deleting application:', error);
                 alert('Failed to delete application');
             }
-
         }
+
+        // Add loadBlogs to the initial load functions
+        document.addEventListener('DOMContentLoaded', () => {
+            if (token) {
+                loadJobs();
+                loadApplications();
+                loadTestimonials();
+                loadBlogs();
+            }
+        });
     </script>
 </body>
-
 </html>
