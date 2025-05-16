@@ -272,7 +272,7 @@
             }
 
             // 2. Fetch the blog from backend
-            fetch(`http://localhost:5000/api/blogs/${blogId}`)
+            fetch(`https://backend-two-jet-97.vercel.app/api/blogs/${blogId}`)
                 .then(response => {
                     if (!response.ok) {
                         throw new Error('Blog not found');
