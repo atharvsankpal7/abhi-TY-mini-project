@@ -17,8 +17,7 @@ connectDB();
 const app = express();
 
 // Middleware
-app.use(cors({ origin: ["https://abhi-ty-mini-project.vercel.app", "https://yashrajbusinessgroup.com/"] }));
-app.use(express.json());
+app.use(cors({ origin: ["https://abhi-ty-mini-project.vercel.app", "https://yashrajbusinessgroup.com/", "https://abhi-ty-mini-project-vgig.vercel.app"] }));app.use(express.json());
 
 // Routes
 app.use("/api/jobs", jobRoutes);
